@@ -1,0 +1,17 @@
+noPermission: '&6[&bNoSwear&6] &cYou don''t have permission [Permission]'
+
+PluginReloaded: '&aConfig file, lang, and data were reloaded'
+title_text: '&4Calm down'
+title_subtext: '&4man!'
+WordAdded: '&aWord added'
+WordRemoved: '&aWord removed'
+NoWords: '&cNo words in the list'
+WordList: '&aWords in the list: [Words]'
+
+help:
+  - '&a -- Help for NoSwear plugin --'
+  - '&a(developped by Black_Eyes, idea of sergiomol)'
+  - '&a/ns add <word> &7- Add a word to the list'
+  - '&a/ns remove <word> &7- Remove a word from the list'
+  - '&a/ns list &7- List all words'
+  - '&a/ns reload &7- Reload the plugin'

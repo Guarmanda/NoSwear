@@ -1,0 +1,16 @@
+    #Checks for updates at plugin start
+CheckForUpdates: true
+    #Info messages at plugin startup
+ConsoleMessages: true
+
+Censor_message: false
+CensorShip_Character: '*'
+
+ghost_mute_player_by_only_sending_his_bad_message_to_himself: true
+    # title message is editable in lang.yml
+show_title_at_player: true
+
+    # with noswear.log, you can be messaged for any message containing bad word said by a player
+send_messages_to_admins: true
+    # format of the message sent to admins
+format_of_swearing_messages_for_admins_and_console: '&6[&bNoSwear&6] &c[Player] &7said a/some bad word(s): &c[Message]'

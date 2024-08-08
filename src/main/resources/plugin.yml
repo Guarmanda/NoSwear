@@ -1,0 +1,12 @@
+name: ${project.artifactId}
+main: fr.black_eyes.noswear.Main
+version: ${project.version}
+author: Black_Eyes
+api-version: 1.13
+softdepend: [Essentials, EssentialsChat]
+description: >
+             Plugin for blocking swear words
+commands:
+  noswear:
+    description: Main Command
+    aliases: ns
