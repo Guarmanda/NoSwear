@@ -1,7 +1,8 @@
 name: ${project.artifactId}
-main: fr.black_eyes.noswear.Main
+main: ${project.groupId}.Main
 version: ${project.version}
 author: Black_Eyes
+load: POSTWORLD
 api-version: 1.13
 softdepend: [Essentials, EssentialsChat]
 description: >

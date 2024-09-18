@@ -1,18 +1,21 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>fr.black_eyes.noswear</groupId>
-  <artifactId>NoSwear</artifactId>
+  <artifactId>${project.name}</artifactId>
   <version>0.1</version>
   <name>NoSwear</name>
   <description>Plugin for blocking swear words</description>
   <packaging>jar</packaging>
+
+
+
   <properties>
     <project.build.sourceEncoding>ISO-8859-1</project.build.sourceEncoding>
 
     <maven.compiler.release>8</maven.compiler.release>
   </properties>
   <build>
-   <finalName>NoSwear</finalName>
+   <finalName>${project.name}</finalName>
     <resources>
         <!-- Default resource directory, no filtering -->
         <resource>
@@ -28,8 +31,31 @@
             <filtering>true</filtering>
         </resource>
     </resources>
+    <plugins>
+      <!-- any other plugins -->
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <descriptorRefs>
+            <descriptorRef>jar-with-dependencies</descriptorRef>
+          </descriptorRefs>
+        </configuration>
+      </plugin>
+    </plugins>
  </build>
   <repositories>
+      <repository>
+        <id>jitpack.io</id>
+        <url>https://jitpack.io</url>
+    </repository>
     <repository>
       <id>enginehub-maven</id>
       <url>https://maven.enginehub.org/repo/</url>
@@ -85,5 +111,10 @@
         <version>2.20.1</version>
         <scope>provided</scope>
     </dependency>
+	<dependency>
+	    <groupId>com.github.Guarmanda</groupId>
+	    <artifactId>SimpleJavaPlugin</artifactId>
+	    <version>0.5</version>
+	</dependency>
   </dependencies>
 </project>

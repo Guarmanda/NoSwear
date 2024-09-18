@@ -12,7 +12,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import fr.black_eyes.noswear.Config;
 import fr.black_eyes.noswear.Main;
-import fr.black_eyes.noswear.Utils;
+import fr.black_eyes.simpleJavaPlugin.Utils;
 
 
 
@@ -38,7 +38,7 @@ public class ChatListener implements Listener  {
 		List<String> toReplace = new ArrayList<>();
 		String message = e.getMessage();
 		for (String word : Main.getInstance().getBadWords().getBadWords()) {
-			String word_found = Utils.containsIgnoreCase(message, word);
+			String word_found = containsIgnoreCase(message, word);
 			if(word_found != null) {
 				toReplace.add(word_found);
 				found_bad_word = true;
@@ -68,7 +68,7 @@ public class ChatListener implements Listener  {
 				Utils.sendMultilineMessage(complete_message, p);
 				if(Config.getInstance().ConsoleMessages) {
 					// send the message to the console
-					Main.getInstance().logInfo(Config.getInstance().format_of_swearing_messages_for_admins.replace("[Player]", p.getName()).replace("[message]", e.getMessage()));
+					Utils.logInfo(Config.getInstance().format_of_swearing_messages_for_admins.replace("[Player]", p.getName()).replace("[message]", e.getMessage()));
 				}
 				// check if a player has the noswear.log permission
 				if(Config.getInstance().send_messages_to_admins) {
@@ -85,4 +85,19 @@ public class ChatListener implements Listener  {
 			}
 		}
     }
+		/**
+	 * search for a string in a string, ignoring case. If we find the badword, return its original form in the string so we can replace it
+	 * For this, we have to remember its position and length in the original string
+	 */
+	public static String containsIgnoreCase(String the_string, String bad_word) {
+		String the_string_lower = the_string.toLowerCase().replace('@', 'a').replace('0', 'o').replace('1', 'i').replace('3', 'e').replace('4', 'a').replace('5', 's').replace('7', 't').replace('8', 'b').replace('9', 'g');
+		String bad_word_lower = bad_word.toLowerCase();
+		int index = the_string_lower.indexOf(bad_word_lower);
+		if(index != -1) {
+			return the_string.substring(index, index + bad_word.length());
+		}
+		return null;
+	}
+
+		
 }

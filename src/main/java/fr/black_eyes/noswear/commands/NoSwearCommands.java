@@ -7,15 +7,16 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 import fr.black_eyes.noswear.Config;
-import fr.black_eyes.noswear.Files;
 import fr.black_eyes.noswear.Main;
-import fr.black_eyes.noswear.Utils;
+import fr.black_eyes.simpleJavaPlugin.Files;
+import fr.black_eyes.simpleJavaPlugin.SimpleJavaPlugin;
+import fr.black_eyes.simpleJavaPlugin.Utils;
 import fr.black_eyes.noswear.BadWords;
 
 
 public class NoSwearCommands implements CommandExecutor, TabCompleter  {
 
-	private Main main;
+	private SimpleJavaPlugin main;
 	private Files configFiles;
 
 
